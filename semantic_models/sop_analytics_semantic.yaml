@@ -1,0 +1,430 @@
+# =============================================================================
+# S&OP Analytics Semantic Model
+# 
+# Cortex Analyst YAML-based semantic model for S&OP Scenario Planning
+# 
+# Supports natural language queries about:
+#   - Scenario comparison (Baseline vs Q4 Push)
+#   - Warehousing costs and overflow penalties
+#   - Revenue and margin analysis
+#   - Capacity utilization projections
+#
+# Stage location: @SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.MODELS/sop_analytics_semantic.yaml
+# =============================================================================
+
+name: sop_analytics_semantic_model
+description: >
+  Semantic model for S&OP integrated scenario planning and logistics optimization.
+  Enables VP of Supply Chain to compare forecast scenarios and understand 
+  warehousing cost implications of Marketing Push campaigns.
+
+tables:
+  # =========================================================================
+  # Scenario Comparison Fact Table
+  # Primary table for scenario analysis queries
+  # =========================================================================
+  - name: scenario_comparison
+    description: >
+      Denormalized fact table combining demand forecasts with scenario definitions,
+      product details, site information, and logistics costs. Use this table for
+      comparing forecast scenarios and analyzing revenue/cost impact.
+    base_table:
+      database: SOP_SCENARIO_PLANNING_LOGISTICS
+      schema: SOP_LOGISTICS
+      table: SCENARIO_COMPARISON_V
+    primary_key:
+      columns: [PRODUCT_ID, SITE_ID, SCENARIO_ID, FORECAST_DATE]
+    
+    dimensions:
+      # Scenario dimensions
+      - name: scenario_id
+        description: Unique identifier for the forecast scenario.
+        expr: SCENARIO_ID
+        data_type: NUMBER
+        
+      - name: scenario_code
+        synonyms: ["scenario", "plan code"]
+        description: Short code for the scenario (e.g., BASELINE, Q4_PUSH).
+        expr: SCENARIO_CODE
+        data_type: TEXT
+        sample_values: ["BASELINE", "Q4_PUSH", "CONSERVATIVE"]
+        
+      - name: scenario_name
+        synonyms: ["plan name", "forecast plan"]
+        description: Descriptive name of the forecast scenario.
+        expr: SCENARIO_NAME
+        data_type: TEXT
+        sample_values: ["Baseline Forecast", "Q4 Marketing Push", "Conservative Estimate"]
+        
+      - name: scenario_type
+        description: Category of scenario (BASELINE, MARKETING_PUSH, CONSERVATIVE).
+        expr: SCENARIO_TYPE
+        data_type: TEXT
+        sample_values: ["BASELINE", "MARKETING_PUSH", "CONSERVATIVE"]
+        
+      - name: is_official_baseline
+        description: Whether this scenario is the official baseline plan.
+        expr: IS_OFFICIAL_BASELINE
+        data_type: BOOLEAN
+        
+      # Product dimensions
+      - name: product_id
+        description: Unique product identifier.
+        expr: PRODUCT_ID
+        data_type: NUMBER
+        
+      - name: product_code
+        synonyms: ["sku", "item code"]
+        description: Product SKU code.
+        expr: PRODUCT_CODE
+        data_type: TEXT
+        
+      - name: product_name
+        synonyms: ["product", "item"]
+        description: Product name.
+        expr: PRODUCT_NAME
+        data_type: TEXT
+        
+      - name: product_family
+        synonyms: ["category", "product category", "family"]
+        description: Product family or category (e.g., Electronics, Appliances).
+        expr: PRODUCT_FAMILY
+        data_type: TEXT
+        sample_values: ["Electronics", "Appliances", "Power Tools", "Outdoor Equipment"]
+        
+      # Site dimensions
+      - name: site_id
+        description: Unique site identifier.
+        expr: SITE_ID
+        data_type: NUMBER
+        
+      - name: site_code
+        description: Site code (e.g., WH-NE, WH-CENT).
+        expr: SITE_CODE
+        data_type: TEXT
+        sample_values: ["WH-WEST", "WH-CENT", "WH-NE"]
+        
+      - name: site_name
+        synonyms: ["warehouse", "distribution center", "DC"]
+        description: Site or warehouse name.
+        expr: SITE_NAME
+        data_type: TEXT
+        sample_values: ["Western Distribution Center", "Central Distribution Center", "Northeast Distribution Center"]
+        
+      - name: site_type
+        description: Type of site (PLANT, WAREHOUSE).
+        expr: SITE_TYPE
+        data_type: TEXT
+        sample_values: ["PLANT", "WAREHOUSE"]
+        
+      - name: region
+        synonyms: ["area", "territory"]
+        description: Geographic region of the site.
+        expr: REGION
+        data_type: TEXT
+        sample_values: ["West", "Central", "Northeast"]
+        
+      # Forecast type
+      - name: forecast_type
+        description: Type of forecast (DEMAND, SUPPLY).
+        expr: FORECAST_TYPE
+        data_type: TEXT
+        sample_values: ["DEMAND"]
+    
+    time_dimensions:
+      - name: forecast_date
+        synonyms: ["date", "period date"]
+        description: Date of the forecast period.
+        expr: FORECAST_DATE
+        data_type: DATE
+        
+      - name: fiscal_month
+        synonyms: ["month"]
+        description: Fiscal month name (July, August, etc.).
+        expr: FISCAL_MONTH
+        data_type: TEXT
+        sample_values: ["July", "August", "September", "October", "November", "December"]
+        
+      - name: fiscal_quarter
+        synonyms: ["quarter"]
+        description: Fiscal quarter (Q3, Q4).
+        expr: FISCAL_QUARTER
+        data_type: TEXT
+        sample_values: ["Q3", "Q4"]
+        
+      - name: fiscal_period
+        description: Fiscal period code (e.g., FY24-JUL).
+        expr: FISCAL_PERIOD
+        data_type: TEXT
+    
+    facts:
+      - name: forecast_quantity
+        synonyms: ["quantity", "units", "demand units"]
+        description: Forecasted quantity in units.
+        expr: FORECAST_QUANTITY
+        data_type: NUMBER
+        
+      - name: unit_revenue
+        synonyms: ["price", "unit price"]
+        description: Revenue per unit (selling price).
+        expr: UNIT_REVENUE
+        data_type: NUMBER
+        
+      - name: total_revenue
+        synonyms: ["revenue", "sales"]
+        description: Total revenue for this forecast line.
+        expr: TOTAL_REVENUE
+        data_type: NUMBER
+        
+      - name: unit_cost
+        synonyms: ["cost"]
+        description: Cost per unit.
+        expr: UNIT_COST
+        data_type: NUMBER
+        
+      - name: total_cost
+        synonyms: ["cogs", "cost of goods"]
+        description: Total cost for this forecast line.
+        expr: TOTAL_COST
+        data_type: NUMBER
+        
+      - name: gross_margin
+        synonyms: ["margin", "profit"]
+        description: Gross margin (revenue minus cost).
+        expr: GROSS_MARGIN
+        data_type: NUMBER
+        
+      - name: projected_warehousing_cost
+        synonyms: ["warehousing cost", "storage cost", "warehouse cost"]
+        description: Projected warehousing/storage cost based on 30-day storage assumption.
+        expr: PROJECTED_WAREHOUSING_COST
+        data_type: NUMBER
+        
+      - name: overflow_penalty_rate
+        description: Penalty rate per pallet per day when capacity exceeds threshold.
+        expr: OVERFLOW_PENALTY_RATE
+        data_type: NUMBER
+        
+      - name: confidence_level
+        description: Forecast confidence level (0-1).
+        expr: CONFIDENCE_LEVEL
+        data_type: NUMBER
+    
+    metrics:
+      - name: total_forecasted_revenue
+        synonyms: ["total revenue", "sum revenue"]
+        description: Sum of all revenue across forecast lines.
+        expr: SUM(scenario_comparison.TOTAL_REVENUE)
+        
+      - name: total_forecasted_quantity
+        synonyms: ["total units", "sum quantity"]
+        description: Sum of all forecasted units.
+        expr: SUM(scenario_comparison.FORECAST_QUANTITY)
+        
+      - name: total_warehousing_cost
+        synonyms: ["total storage cost", "warehousing budget"]
+        description: Sum of projected warehousing costs.
+        expr: SUM(scenario_comparison.PROJECTED_WAREHOUSING_COST)
+        
+      - name: total_gross_margin
+        synonyms: ["total margin", "total profit"]
+        description: Sum of gross margin across all forecast lines.
+        expr: SUM(scenario_comparison.GROSS_MARGIN)
+        
+      - name: gross_margin_percentage
+        synonyms: ["margin percent", "margin %"]
+        description: Gross margin as a percentage of revenue.
+        expr: (SUM(scenario_comparison.GROSS_MARGIN) / NULLIF(SUM(scenario_comparison.TOTAL_REVENUE), 0)) * 100
+        
+      - name: average_confidence
+        description: Average forecast confidence level.
+        expr: AVG(scenario_comparison.CONFIDENCE_LEVEL)
+        
+      - name: net_margin_after_warehousing
+        synonyms: ["net margin", "adjusted margin"]
+        description: Gross margin minus warehousing costs.
+        expr: SUM(scenario_comparison.GROSS_MARGIN) - SUM(scenario_comparison.PROJECTED_WAREHOUSING_COST)
+    
+    filters:
+      - name: q4_only
+        synonyms: ["Q4", "fourth quarter"]
+        description: Filter to Q4 forecast periods (October, November, December).
+        expr: FISCAL_QUARTER = 'Q4'
+        
+      - name: q3_only
+        synonyms: ["Q3", "third quarter"]
+        description: Filter to Q3 forecast periods (July, August, September).
+        expr: FISCAL_QUARTER = 'Q3'
+        
+      - name: baseline_only
+        description: Filter to the official baseline scenario.
+        expr: SCENARIO_CODE = 'BASELINE'
+        
+      - name: q4_push_only
+        synonyms: ["marketing push", "Q4 push"]
+        description: Filter to the Q4 Marketing Push scenario.
+        expr: SCENARIO_CODE = 'Q4_PUSH'
+        
+      - name: northeast_only
+        synonyms: ["northeast", "NE", "northeast DC"]
+        description: Filter to Northeast Distribution Center.
+        expr: REGION = 'Northeast'
+        
+      - name: october_only
+        synonyms: ["october", "oct"]
+        description: Filter to October forecast period.
+        expr: FISCAL_MONTH = 'October'
+
+  # =========================================================================
+  # Scenario KPI Summary Table
+  # Pre-aggregated KPIs by scenario
+  # =========================================================================
+  - name: scenario_kpi
+    description: >
+      Pre-aggregated KPI summary by scenario. Use this table for high-level
+      scenario comparison without needing to aggregate raw forecast data.
+    base_table:
+      database: SOP_SCENARIO_PLANNING_LOGISTICS
+      schema: SOP_LOGISTICS
+      table: DT_SCENARIO_KPI_SUMMARY
+    primary_key:
+      columns: [SCENARIO_ID]
+    
+    dimensions:
+      - name: scenario_id
+        description: Unique scenario identifier.
+        expr: SCENARIO_ID
+        data_type: NUMBER
+        
+      - name: scenario_code
+        synonyms: ["scenario", "plan"]
+        description: Scenario code.
+        expr: SCENARIO_CODE
+        data_type: TEXT
+        sample_values: ["BASELINE", "Q4_PUSH", "CONSERVATIVE"]
+        
+      - name: scenario_name
+        description: Full scenario name.
+        expr: SCENARIO_NAME
+        data_type: TEXT
+    
+    facts:
+      - name: product_count
+        description: Number of distinct products in the scenario.
+        expr: PRODUCT_COUNT
+        data_type: NUMBER
+        
+      - name: site_count
+        description: Number of distinct sites in the scenario.
+        expr: SITE_COUNT
+        data_type: NUMBER
+        
+      - name: total_forecast_quantity
+        description: Total forecasted quantity across all products.
+        expr: TOTAL_FORECAST_QUANTITY
+        data_type: NUMBER
+        
+      - name: total_forecasted_revenue
+        description: Total forecasted revenue.
+        expr: TOTAL_FORECASTED_REVENUE
+        data_type: NUMBER
+        
+      - name: total_forecasted_cost
+        description: Total forecasted cost of goods.
+        expr: TOTAL_FORECASTED_COST
+        data_type: NUMBER
+        
+      - name: total_gross_margin
+        description: Total gross margin.
+        expr: TOTAL_GROSS_MARGIN
+        data_type: NUMBER
+        
+      - name: gross_margin_pct
+        description: Gross margin percentage.
+        expr: GROSS_MARGIN_PCT
+        data_type: NUMBER
+        
+      - name: total_warehousing_cost
+        description: Total projected warehousing cost.
+        expr: TOTAL_WAREHOUSING_COST
+        data_type: NUMBER
+        
+      - name: net_margin_after_storage
+        description: Net margin after warehousing costs.
+        expr: NET_MARGIN_AFTER_STORAGE
+        data_type: NUMBER
+
+# =============================================================================
+# Verified Queries (Golden Queries)
+# =============================================================================
+verified_queries:
+  - name: warehousing_cost_by_scenario_october
+    question: "Compare the total warehousing cost between Baseline and Q4 Push for October"
+    sql: |
+      SELECT 
+        SCENARIO_CODE,
+        SUM(PROJECTED_WAREHOUSING_COST) AS TOTAL_WAREHOUSING_COST
+      FROM SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.SCENARIO_COMPARISON_V
+      WHERE FISCAL_MONTH = 'October'
+      GROUP BY SCENARIO_CODE
+      ORDER BY SCENARIO_CODE;
+      
+  - name: margin_impact_comparison
+    question: "What is the margin impact of Q4 Push compared to Baseline?"
+    sql: |
+      SELECT 
+        SCENARIO_CODE,
+        TOTAL_GROSS_MARGIN,
+        TOTAL_WAREHOUSING_COST,
+        NET_MARGIN_AFTER_STORAGE
+      FROM SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.DT_SCENARIO_KPI_SUMMARY
+      ORDER BY SCENARIO_CODE;
+      
+  - name: revenue_by_product_family_scenario
+    question: "What is the revenue by product family for each scenario?"
+    sql: |
+      SELECT 
+        SCENARIO_CODE,
+        PRODUCT_FAMILY,
+        SUM(TOTAL_REVENUE) AS TOTAL_REVENUE
+      FROM SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.SCENARIO_COMPARISON_V
+      GROUP BY SCENARIO_CODE, PRODUCT_FAMILY
+      ORDER BY SCENARIO_CODE, TOTAL_REVENUE DESC;
+      
+  - name: northeast_capacity_impact
+    question: "How does Q4 Push affect the Northeast DC warehousing costs?"
+    sql: |
+      SELECT 
+        SCENARIO_CODE,
+        FISCAL_MONTH,
+        SUM(PROJECTED_WAREHOUSING_COST) AS WAREHOUSING_COST
+      FROM SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.SCENARIO_COMPARISON_V
+      WHERE REGION = 'Northeast'
+      GROUP BY SCENARIO_CODE, FISCAL_MONTH
+      ORDER BY SCENARIO_CODE, FISCAL_MONTH;
+
+# =============================================================================
+# Custom Instructions
+# =============================================================================
+custom_instructions: >
+  When comparing scenarios, always include both BASELINE and Q4_PUSH unless 
+  the user specifically asks for a single scenario.
+  
+  When the user asks about "marketing push" or "Q4 push", they mean the Q4_PUSH 
+  scenario which represents an aggressive marketing campaign with 25-35% higher 
+  demand in Q4.
+  
+  For warehousing cost questions, emphasize the difference between scenarios and
+  note that Q4 Push typically requires ~20% higher warehousing budget.
+  
+  When asked about the Northeast DC specifically, highlight any overflow risk
+  since this facility operates at higher utilization.
+  
+  Always express margin impacts as both absolute values and percentages when
+  comparing scenarios.
+
+# =============================================================================
+# Note: onboarding_questions is NOT a valid semantic model field.
+# Sample questions should be defined in the Cortex Agent configuration instead,
+# or displayed in the application UI directly.
+# =============================================================================

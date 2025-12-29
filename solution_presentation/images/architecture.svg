@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500">
+  <defs>
+    <linearGradient id="bgGradArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="snowflakeGradArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c4a6e"/>
+      <stop offset="100%" style="stop-color:#0369a1"/>
+    </linearGradient>
+    <linearGradient id="sourceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#312e81"/>
+      <stop offset="100%" style="stop-color:#4338ca"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#581c87"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="shadowArch" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64D2FF"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="500" fill="url(#bgGradArch)"/>
+  
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700">S&amp;OP Solution Architecture</text>
+  <text x="550" y="55" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="12">Manufacturing Data Sources → Snowflake Platform → AI/Analytics → Business Outcomes</text>
+  
+  <!-- Zone 1: Data Sources -->
+  <g filter="url(#shadowArch)">
+    <rect x="20" y="80" width="180" height="380" rx="10" fill="url(#sourceGrad)" opacity="0.9"/>
+    <text x="110" y="105" text-anchor="middle" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700">DATA SOURCES</text>
+    
+    <!-- Source items -->
+    <g transform="translate(35, 125)">
+      <rect width="150" height="55" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">🏭 ERP System</text>
+      <text x="75" y="38" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Production Capacity</text>
+      <text x="75" y="49" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Work Centers</text>
+    </g>
+    
+    <g transform="translate(35, 190)">
+      <rect width="150" height="55" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">📊 Demand Planning</text>
+      <text x="75" y="38" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Forecasts by SKU</text>
+      <text x="75" y="49" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Scenario Versions</text>
+    </g>
+    
+    <g transform="translate(35, 255)">
+      <rect width="150" height="55" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">📦 WMS</text>
+      <text x="75" y="38" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Warehouse Zones</text>
+      <text x="75" y="49" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Capacity &amp; Occupancy</text>
+    </g>
+    
+    <g transform="translate(35, 320)">
+      <rect width="150" height="55" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">📄 Documents</text>
+      <text x="75" y="38" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">3PL Contracts</text>
+      <text x="75" y="49" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">SLAs &amp; Meeting Notes</text>
+    </g>
+    
+    <g transform="translate(35, 385)">
+      <rect width="150" height="55" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">💰 Finance</text>
+      <text x="75" y="38" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Costs &amp; Pricing</text>
+      <text x="75" y="49" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="9">Logistics Rates</text>
+    </g>
+  </g>
+  
+  <!-- Arrow: Sources to Snowflake -->
+  <path d="M200,270 L240,270" stroke="#64D2FF" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="220" y="260" text-anchor="middle" fill="#64D2FF" font-family="Inter, system-ui, sans-serif" font-size="8">CSV/PDF</text>
+  
+  <!-- Zone 2: Snowflake Platform -->
+  <g filter="url(#shadowArch)">
+    <rect x="250" y="80" width="380" height="380" rx="10" fill="url(#snowflakeGradArch)" opacity="0.95"/>
+    <text x="440" y="105" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700">❄️ SNOWFLAKE DATA CLOUD</text>
+    
+    <!-- RAW Layer -->
+    <g transform="translate(265, 120)">
+      <rect width="110" height="130" rx="6" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1"/>
+      <text x="55" y="22" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">RAW</text>
+      <text x="55" y="38" text-anchor="middle" fill="#38bdf8" font-family="Inter, system-ui, sans-serif" font-size="8">Landing Zone</text>
+      <line x1="10" y1="48" x2="100" y2="48" stroke="#0ea5e9" stroke-width="0.5"/>
+      <text x="55" y="65" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">PRODUCT_STAGE</text>
+      <text x="55" y="78" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">SITE_STAGE</text>
+      <text x="55" y="91" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">FORECAST_STAGE</text>
+      <text x="55" y="104" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">LOGISTICS_STAGE</text>
+      <text x="55" y="117" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">...</text>
+    </g>
+    
+    <!-- ATOMIC Layer -->
+    <g transform="translate(385, 120)">
+      <rect width="110" height="130" rx="6" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1"/>
+      <text x="55" y="22" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">ATOMIC</text>
+      <text x="55" y="38" text-anchor="middle" fill="#38bdf8" font-family="Inter, system-ui, sans-serif" font-size="8">Enterprise Model</text>
+      <line x1="10" y1="48" x2="100" y2="48" stroke="#0ea5e9" stroke-width="0.5"/>
+      <text x="55" y="65" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">PRODUCT (SCD2)</text>
+      <text x="55" y="78" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">SITE (SCD2)</text>
+      <text x="55" y="91" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">SCENARIO_DEF</text>
+      <text x="55" y="104" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">DEMAND_FORECAST</text>
+      <text x="55" y="117" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">LOGISTICS_COST</text>
+    </g>
+    
+    <!-- DATA MART Layer -->
+    <g transform="translate(505, 120)">
+      <rect width="110" height="130" rx="6" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1"/>
+      <text x="55" y="22" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">DATA MART</text>
+      <text x="55" y="38" text-anchor="middle" fill="#38bdf8" font-family="Inter, system-ui, sans-serif" font-size="8">Analytics Views</text>
+      <line x1="10" y1="48" x2="100" y2="48" stroke="#0ea5e9" stroke-width="0.5"/>
+      <text x="55" y="65" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">SCENARIO_</text>
+      <text x="55" y="76" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">COMPARISON_V</text>
+      <text x="55" y="95" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">KPI_SUMMARY</text>
+      <text x="55" y="114" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="8">BUILD_PLAN</text>
+    </g>
+    
+    <!-- Flow arrows inside Snowflake -->
+    <path d="M375,185 L390,185" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <path d="M495,185 L510,185" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    
+    <!-- Document Processing -->
+    <g transform="translate(265, 265)">
+      <rect width="165" height="60" rx="6" fill="#1e3a5f" stroke="#38bdf8" stroke-width="1"/>
+      <text x="82" y="22" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">📑 Document Processing</text>
+      <text x="82" y="40" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">PDF Parsing → Chunking</text>
+      <text x="82" y="52" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">→ Cortex Search Index</text>
+    </g>
+    
+    <!-- Semantic Model -->
+    <g transform="translate(450, 265)">
+      <rect width="165" height="60" rx="6" fill="#1e3a5f" stroke="#38bdf8" stroke-width="1"/>
+      <text x="82" y="22" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">📊 Semantic Model</text>
+      <text x="82" y="40" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">Dimensions, Measures</text>
+      <text x="82" y="52" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">Filters, Verified Queries</text>
+    </g>
+    
+    <!-- ML/Optimization -->
+    <g transform="translate(265, 340)">
+      <rect width="350" height="55" rx="6" fill="#1e3a5f" stroke="#38bdf8" stroke-width="1"/>
+      <text x="175" y="20" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🧮 Snowpark ML Optimization</text>
+      <text x="175" y="38" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">Linear Programming (PuLP) • Minimize: Production + Storage + Overflow Costs</text>
+      <text x="175" y="50" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Output: RECOMMENDED_BUILD_PLAN</text>
+    </g>
+    
+    <!-- Write-back indicator -->
+    <g transform="translate(265, 405)">
+      <rect width="350" height="35" rx="4" fill="#0f172a" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,2"/>
+      <text x="175" y="22" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="9">⚡ Hybrid Tables: Low-latency write-back from Streamlit</text>
+    </g>
+  </g>
+  
+  <!-- Arrow: Snowflake to AI -->
+  <path d="M630,270 L670,270" stroke="#64D2FF" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <!-- Zone 3: AI Layer -->
+  <g filter="url(#shadowArch)">
+    <rect x="680" y="80" width="160" height="210" rx="10" fill="url(#aiGrad)" opacity="0.9"/>
+    <text x="760" y="105" text-anchor="middle" fill="#e9d5ff" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700">AI / ANALYTICS</text>
+    
+    <g transform="translate(695, 120)">
+      <rect width="130" height="55" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" fill="#e9d5ff" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🤖 Cortex Analyst</text>
+      <text x="65" y="36" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="8">Natural Language</text>
+      <text x="65" y="47" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="8">→ SQL Queries</text>
+    </g>
+    
+    <g transform="translate(695, 185)">
+      <rect width="130" height="55" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" fill="#e9d5ff" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🔍 Cortex Search</text>
+      <text x="65" y="36" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="8">RAG over Contracts</text>
+      <text x="65" y="47" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="8">&amp; SLA Documents</text>
+    </g>
+    
+    <g transform="translate(695, 250)">
+      <rect width="130" height="30" rx="4" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="9">LLM: llama3.1-70b</text>
+    </g>
+  </g>
+  
+  <!-- Arrow: AI to App -->
+  <path d="M760,290 L760,310" stroke="#64D2FF" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <!-- Zone 4: Application Layer -->
+  <g filter="url(#shadowArch)">
+    <rect x="680" y="320" width="160" height="140" rx="10" fill="url(#appGrad)" opacity="0.9"/>
+    <text x="760" y="345" text-anchor="middle" fill="#a7f3d0" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700">APPLICATION</text>
+    
+    <g transform="translate(695, 358)">
+      <rect width="130" height="90" rx="6" fill="#022c22" stroke="#10b981" stroke-width="1"/>
+      <text x="65" y="18" text-anchor="middle" fill="#a7f3d0" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">📱 Streamlit in Snowflake</text>
+      <line x1="10" y1="28" x2="120" y2="28" stroke="#10b981" stroke-width="0.5"/>
+      <text x="65" y="44" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="8">• Executive Dashboard</text>
+      <text x="65" y="56" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="8">• Scenario Builder</text>
+      <text x="65" y="68" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="8">• Capacity Analysis</text>
+      <text x="65" y="80" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="8">• AI Analyst</text>
+    </g>
+  </g>
+  
+  <!-- Arrow: App to Outcomes -->
+  <path d="M840,390 L880,390" stroke="#64D2FF" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <!-- Zone 5: Outcomes -->
+  <g filter="url(#shadowArch)">
+    <rect x="890" y="80" width="180" height="380" rx="10" fill="#1e293b" stroke="#64D2FF" stroke-width="2"/>
+    <text x="980" y="105" text-anchor="middle" fill="#64D2FF" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700">BUSINESS OUTCOMES</text>
+    
+    <g transform="translate(905, 125)">
+      <rect width="150" height="50" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#4ade80" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">⚡ Real-Time</text>
+      <text x="75" y="40" text-anchor="middle" fill="#86efac" font-family="Inter, system-ui, sans-serif" font-size="9">Scenario Comparison</text>
+    </g>
+    
+    <g transform="translate(905, 185)">
+      <rect width="150" height="50" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">💰 Cost Visibility</text>
+      <text x="75" y="40" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9">Logistics Impact in Seconds</text>
+    </g>
+    
+    <g transform="translate(905, 245)">
+      <rect width="150" height="50" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">⚠️ Capacity Alerts</text>
+      <text x="75" y="40" text-anchor="middle" fill="#fcd34d" font-family="Inter, system-ui, sans-serif" font-size="9">Overflow Risk Detection</text>
+    </g>
+    
+    <g transform="translate(905, 305)">
+      <rect width="150" height="50" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#c084fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">🤖 AI Answers</text>
+      <text x="75" y="40" text-anchor="middle" fill="#d8b4fe" font-family="Inter, system-ui, sans-serif" font-size="9">NL Queries on Data &amp; Docs</text>
+    </g>
+    
+    <g transform="translate(905, 365)">
+      <rect width="150" height="50" rx="6" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+      <text x="75" y="22" text-anchor="middle" fill="#f87171" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">🎯 Optimized Plans</text>
+      <text x="75" y="40" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">ML-Driven Build Schedule</text>
+    </g>
+    
+    <g transform="translate(905, 425)">
+      <rect width="150" height="25" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+      <text x="75" y="17" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">✓ Faster Decisions</text>
+    </g>
+  </g>
+</svg>
+

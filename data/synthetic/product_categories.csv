@@ -1,0 +1,13 @@
+PRODUCT_CATEGORY_ID,PRODUCT_CATEGORY_CODE,CATEGORY_NAME,CATEGORY_DESCRIPTION,PARENT_CATEGORY_ID,CATEGORY_LEVEL
+1,ALL,All Products,Top-level category for all manufactured products,,1
+10,ELEC,Electronics,Consumer and industrial electronics,1,2
+20,APPL,Appliances,Home and commercial appliances,1,2
+30,TOOL,Power Tools,Professional and consumer power tools,1,2
+40,OUTD,Outdoor Equipment,Lawn and garden equipment,1,2
+11,ELEC-TV,Televisions,LED and OLED televisions,10,3
+12,ELEC-AUD,Audio Systems,Speakers and sound systems,10,3
+21,APPL-REF,Refrigerators,Residential and commercial refrigerators,20,3
+22,APPL-WSH,Washers,Washing machines and dryers,20,3
+31,TOOL-DRL,Drills,Cordless and corded drills,30,3
+32,TOOL-SAW,Saws,Circular and table saws,30,3
+41,OUTD-MWR,Mowers,Lawn mowers and tractors,40,3

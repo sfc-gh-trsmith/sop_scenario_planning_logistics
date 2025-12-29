@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#64D2FF"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#166534"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#6b21a8"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="480" fill="url(#bgGrad3)"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700">Measurable Business Outcomes</text>
+  <text x="450" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">S&amp;OP Scenario Planning on Snowflake</text>
+  
+  <!-- Three main metric cards -->
+  
+  <!-- Card 1: Operational Efficiency -->
+  <g filter="url(#shadow3)">
+    <rect x="30" y="95" width="270" height="240" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="30" y="95" width="270" height="8" rx="4" fill="url(#greenGrad)"/>
+    
+    <text x="165" y="130" text-anchor="middle" fill="#4ade80" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">OPERATIONAL EFFICIENCY</text>
+    
+    <!-- KPI 1 -->
+    <g transform="translate(50, 150)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#22c55e" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" filter="url(#glow)">80%</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">Planning Cycle Time Reduction</text>
+    </g>
+    
+    <!-- KPI 2 -->
+    <g transform="translate(50, 215)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#22c55e" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" filter="url(#glow)">5-10x</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">More Scenarios Per Cycle</text>
+    </g>
+    
+    <!-- KPI 3 -->
+    <g transform="translate(50, 280)">
+      <rect width="230" height="40" rx="6" fill="#0f172a"/>
+      <text x="115" y="26" text-anchor="middle" fill="#4ade80" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">100% Automated</text>
+      <text x="170" y="26" text-anchor="start" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10"> reconciliation</text>
+    </g>
+  </g>
+  
+  <!-- Card 2: Cost Optimization -->
+  <g filter="url(#shadow3)">
+    <rect x="315" y="95" width="270" height="240" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="315" y="95" width="270" height="8" rx="4" fill="url(#blueGrad)"/>
+    
+    <text x="450" y="130" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">COST OPTIMIZATION</text>
+    
+    <!-- KPI 1 -->
+    <g transform="translate(335, 150)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#3b82f6" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" filter="url(#glow)">15-20%</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">Inventory Carrying Cost Reduction</text>
+    </g>
+    
+    <!-- KPI 2 -->
+    <g transform="translate(335, 215)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#3b82f6" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" filter="url(#glow)">Proactive</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">Overflow Penalty Detection</text>
+    </g>
+    
+    <!-- KPI 3 -->
+    <g transform="translate(335, 280)">
+      <rect width="230" height="40" rx="6" fill="#0f172a"/>
+      <text x="115" y="26" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">Real-Time</text>
+      <text x="163" y="26" text-anchor="start" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10"> cost visibility</text>
+    </g>
+  </g>
+  
+  <!-- Card 3: Service Level -->
+  <g filter="url(#shadow3)">
+    <rect x="600" y="95" width="270" height="240" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="600" y="95" width="270" height="8" rx="4" fill="url(#purpleGrad)"/>
+    
+    <text x="735" y="130" text-anchor="middle" fill="#c084fc" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">SERVICE LEVEL</text>
+    
+    <!-- KPI 1 -->
+    <g transform="translate(620, 150)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#a855f7" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" filter="url(#glow)">95%+</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">Target Order Fill Rate</text>
+    </g>
+    
+    <!-- KPI 2 -->
+    <g transform="translate(620, 215)">
+      <rect width="230" height="55" rx="6" fill="#0f172a"/>
+      <text x="115" y="25" text-anchor="middle" fill="#a855f7" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" filter="url(#glow)">Improved</text>
+      <text x="115" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">Forecast Accuracy with AI</text>
+    </g>
+    
+    <!-- KPI 3 -->
+    <g transform="translate(620, 280)">
+      <rect width="230" height="40" rx="6" fill="#0f172a"/>
+      <text x="115" y="26" text-anchor="middle" fill="#c084fc" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">Protected</text>
+      <text x="165" y="26" text-anchor="start" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10"> satisfaction</text>
+    </g>
+  </g>
+  
+  <!-- The "Wow" Moment Section -->
+  <g filter="url(#shadow3)">
+    <rect x="30" y="355" width="840" height="110" rx="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="2"/>
+    
+    <text x="450" y="385" text-anchor="middle" fill="#7dd3fc" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">THE "WOW" MOMENT — Baseline vs Q4 Marketing Push</text>
+    
+    <!-- Comparison boxes -->
+    <g transform="translate(60, 400)">
+      <rect width="180" height="50" rx="6" fill="#1e293b"/>
+      <text x="90" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">DEMAND INCREASE</text>
+      <text x="90" y="40" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">+25-35%</text>
+    </g>
+    
+    <g transform="translate(260, 400)">
+      <rect width="180" height="50" rx="6" fill="#1e293b"/>
+      <text x="90" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">WAREHOUSE COST SPIKE</text>
+      <text x="90" y="40" text-anchor="middle" fill="#ef4444" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">+20%</text>
+    </g>
+    
+    <g transform="translate(460, 400)">
+      <rect width="180" height="50" rx="6" fill="#1e293b"/>
+      <text x="90" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">NORTHEAST DC RISK</text>
+      <text x="90" y="40" text-anchor="middle" fill="#f97316" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">95%+ Util</text>
+    </g>
+    
+    <g transform="translate(660, 400)">
+      <rect width="180" height="50" rx="6" fill="#1e293b"/>
+      <text x="90" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">VISIBILITY TIME</text>
+      <text x="90" y="40" text-anchor="middle" fill="#22c55e" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">Seconds</text>
+    </g>
+  </g>
+</svg>
+

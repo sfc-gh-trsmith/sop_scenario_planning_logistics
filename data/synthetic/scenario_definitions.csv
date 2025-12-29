@@ -1,0 +1,4 @@
+SCENARIO_ID,SCENARIO_CODE,SCENARIO_NAME,SCENARIO_DESCRIPTION,SCENARIO_TYPE,IS_OFFICIAL_BASELINE,CREATED_BY_USER,CREATED_DATE
+1,BASELINE,Baseline Forecast,Official baseline forecast based on historical trends and standard seasonality,BASELINE,TRUE,system,2024-07-01
+2,Q4_PUSH,Q4 Marketing Push,Aggressive marketing campaign scenario with 25-35% demand increase in Q4. Requires pre-build strategy in Q3.,MARKETING_PUSH,FALSE,marketing.team,2024-08-15
+3,CONSERVATIVE,Conservative Estimate,Conservative forecast assuming economic headwinds. 10% below baseline.,CONSERVATIVE,FALSE,finance.team,2024-08-20

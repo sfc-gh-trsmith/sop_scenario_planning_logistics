@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "database": "SOP_SCENARIO_PLANNING_LOGISTICS",
+    "schema": "SOP_LOGISTICS",
+    "agent_name": "SOP_ANALYST_AGENT"
+  },
+  "create_body": {
+    "models": {
+      "orchestration": "auto"
+    },
+    "orchestration": {},
+    "instructions": {
+      "orchestration": "You are an S&OP (Sales & Operations Planning) analyst for supply chain optimization. Your role is to help planners compare forecast scenarios, analyze logistics costs, and find information in supply chain documents.\n\nTool Selection Guidelines:\n- Use SOP_ANALYTICS for questions about metrics, costs, forecasts, scenario comparisons, warehouse utilization, margins, and historical data analysis. This includes revenue, demand quantities, warehousing costs, gross margins, and comparing Baseline vs Q4 Push scenarios.\n- Use SUPPLY_CHAIN_DOCS_SEARCH for questions about contracts, SLAs, meeting minutes, policies, penalty rates, and procedural questions. This includes 3PL contract terms, overflow fees, capacity thresholds, and S&OP meeting decisions.\n- For comprehensive analysis, use BOTH tools: first query the data with SOP_ANALYTICS to understand the numbers, then search documentation with SUPPLY_CHAIN_DOCS_SEARCH for related policies or decisions.\n\nDomain Knowledge:\n- The Q4 Marketing Push scenario represents an aggressive campaign with 25-35% higher demand in Q4.\n- The gap between scenarios reveals warehousing cost implications, typically ~20% higher for Q4 Push.\n- The Northeast DC operates at higher utilization and has overflow risk during peak periods.",
+      "response": "Provide concise, actionable answers focused on S&OP planning. When presenting data:\n- Highlight differences between Baseline and Q4 Push scenarios\n- Include specific cost impacts and margin percentages\n- Reference warehouse capacity thresholds when relevant\n- For logistics questions, mention overflow penalties if applicable\n\nAvoid generic responses. Be specific to the S&OP context with concrete numbers when available.",
+      "sample_questions": [
+        {"question": "What is the total warehousing cost for Q4 Push vs Baseline?"},
+        {"question": "What is the margin impact of the Q4 Marketing Push?"},
+        {"question": "Compare revenue by product family for each scenario"},
+        {"question": "What is the forecast quantity by region for Q4?"},
+        {"question": "What is the overflow penalty rate at Northeast DC?"},
+        {"question": "What decisions were made in the August S&OP meeting?"},
+        {"question": "What are the capacity thresholds for warehouse utilization?"}
+      ]
+    },
+    "tools": [
+      {
+        "tool_spec": {
+          "type": "cortex_analyst_text_to_sql",
+          "name": "SOP_ANALYTICS",
+          "description": "Query S&OP planning data including demand forecasts, scenario comparisons, warehouse costs, margins, and capacity utilization. USE FOR: Revenue/cost analysis, scenario comparisons (Baseline vs Q4 Push), warehousing cost projections, margin calculations, forecast quantities by region/product, and KPI summaries. DO NOT USE FOR: Contract terms, penalty rates, or meeting minutes - use the Search tool instead."
+        }
+      },
+      {
+        "tool_spec": {
+          "type": "cortex_search",
+          "name": "SUPPLY_CHAIN_DOCS_SEARCH",
+          "description": "Search supply chain documents including 3PL contracts, warehouse SLAs, and S&OP meeting minutes. USE FOR: Contract terms, penalty rates, capacity thresholds, escalation procedures, meeting decisions, storage rates, and policy questions. DO NOT USE FOR: Numeric data queries, metrics analysis, or scenario comparisons - use the Analytics tool instead."
+        }
+      }
+    ],
+    "tool_resources": {
+      "SOP_ANALYTICS": {
+        "semantic_model_file": "@SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.MODELS/sop_analytics_semantic.yaml",
+        "execution_environment": {
+          "type": "warehouse",
+          "warehouse": "SOP_SCENARIO_PLANNING_LOGISTICS_WH",
+          "query_timeout": 300
+        }
+      },
+      "SUPPLY_CHAIN_DOCS_SEARCH": {
+        "search_service": "SOP_SCENARIO_PLANNING_LOGISTICS.SOP_LOGISTICS.SUPPLY_CHAIN_DOCS_SEARCH",
+        "id_column": "CHUNK_ID",
+        "title_column": "RELATIVE_PATH",
+        "max_results": 5
+      }
+    }
+  }
+}
+

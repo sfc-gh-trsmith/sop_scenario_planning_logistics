@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="bgGradERD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shadowERD" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="fkArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L2,10 L10,6 z" fill="#64748b"/>
+    </marker>
+    <marker id="pkDiamond" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M5,0 L10,5 L5,10 L0,5 z" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="600" fill="url(#bgGradERD)"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">S&amp;OP Data Model - Entity Relationship Diagram</text>
+  <text x="500" y="50" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11">ATOMIC Schema - Core Entities and Project Extensions</text>
+  
+  <!-- Legend -->
+  <g transform="translate(750, 60)">
+    <rect width="230" height="85" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="115" y="18" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">LEGEND</text>
+    <line x1="10" y1="26" x2="220" y2="26" stroke="#475569" stroke-width="0.5"/>
+    
+    <rect x="15" y="35" width="12" height="12" fill="#fbbf24" rx="2"/>
+    <text x="35" y="45" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Primary Key (PK)</text>
+    
+    <rect x="125" y="35" width="12" height="12" fill="#60a5fa" rx="2"/>
+    <text x="145" y="45" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Foreign Key (FK)</text>
+    
+    <line x1="15" y1="58" x2="50" y2="58" stroke="#64748b" stroke-width="2"/>
+    <text x="60" y="62" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">1:N Relationship</text>
+    
+    <rect x="15" y="70" width="12" height="12" fill="#22c55e" rx="2"/>
+    <text x="35" y="80" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Type 2 SCD</text>
+    
+    <rect x="125" y="70" width="12" height="12" fill="#f59e0b" rx="2"/>
+    <text x="145" y="80" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Hybrid Table</text>
+  </g>
+  
+  <!-- ============ PRODUCT_CATEGORY ============ -->
+  <g filter="url(#shadowERD)" transform="translate(50, 90)">
+    <rect width="180" height="140" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#065f46"/>
+    <text x="90" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">PRODUCT_CATEGORY</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">PRODUCT_CATEGORY_ID</text>
+    </g>
+    <text x="15" y="58" fill="#94a3b8" font-family="monospace" font-size="9">PRODUCT_CATEGORY_CODE</text>
+    <text x="15" y="72" fill="#94a3b8" font-family="monospace" font-size="9">CATEGORY_NAME</text>
+    <g transform="translate(10, 78)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">PARENT_CATEGORY_ID</text>
+    </g>
+    <text x="15" y="100" fill="#94a3b8" font-family="monospace" font-size="9">CATEGORY_LEVEL</text>
+    <text x="15" y="114" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="128" fill="#22c55e" font-family="Inter, system-ui, sans-serif" font-size="8">🔄 Self-referencing hierarchy</text>
+  </g>
+  
+  <!-- ============ PRODUCT ============ -->
+  <g filter="url(#shadowERD)" transform="translate(280, 90)">
+    <rect width="180" height="155" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#065f46"/>
+    <text x="90" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">PRODUCT</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">PRODUCT_ID</text>
+    </g>
+    <text x="15" y="58" fill="#94a3b8" font-family="monospace" font-size="9">PRODUCT_CODE</text>
+    <text x="15" y="72" fill="#94a3b8" font-family="monospace" font-size="9">PRODUCT_NAME</text>
+    <text x="15" y="86" fill="#94a3b8" font-family="monospace" font-size="9">PRODUCT_TYPE</text>
+    <g transform="translate(10, 92)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">PRODUCT_CATEGORY_ID</text>
+    </g>
+    <text x="15" y="114" fill="#94a3b8" font-family="monospace" font-size="9">UNIT_PRICE, UNIT_COST</text>
+    <text x="15" y="128" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="145" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Products with pricing</text>
+  </g>
+  
+  <!-- FK: PRODUCT → PRODUCT_CATEGORY -->
+  <path d="M280,160 L230,160" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- ============ SITE ============ -->
+  <g filter="url(#shadowERD)" transform="translate(50, 280)">
+    <rect width="180" height="155" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#065f46"/>
+    <text x="90" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">SITE</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">SITE_ID</text>
+    </g>
+    <text x="15" y="58" fill="#94a3b8" font-family="monospace" font-size="9">SITE_CODE</text>
+    <text x="15" y="72" fill="#94a3b8" font-family="monospace" font-size="9">SITE_NAME</text>
+    <text x="15" y="86" fill="#94a3b8" font-family="monospace" font-size="9">SITE_TYPE</text>
+    <text x="15" y="100" fill="#94a3b8" font-family="monospace" font-size="9">REGION</text>
+    <text x="15" y="114" fill="#94a3b8" font-family="monospace" font-size="9">CAPACITY_METRIC</text>
+    <text x="15" y="128" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="145" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Plants &amp; Warehouses</text>
+  </g>
+  
+  <!-- ============ WORK_CENTER ============ -->
+  <g filter="url(#shadowERD)" transform="translate(50, 470)">
+    <rect width="180" height="120" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#065f46"/>
+    <text x="90" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">WORK_CENTER</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">WORK_CENTER_ID</text>
+    </g>
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">SITE_ID</text>
+    </g>
+    <text x="15" y="74" fill="#94a3b8" font-family="monospace" font-size="9">WORK_CENTER_CODE</text>
+    <text x="15" y="88" fill="#94a3b8" font-family="monospace" font-size="9">CAPACITY_PER_HOUR</text>
+    <text x="15" y="102" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="115" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Production lines</text>
+  </g>
+  
+  <!-- FK: WORK_CENTER → SITE -->
+  <path d="M140,470 L140,435" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- ============ WAREHOUSE_ZONE ============ -->
+  <g filter="url(#shadowERD)" transform="translate(280, 280)">
+    <rect width="180" height="140" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#065f46"/>
+    <text x="90" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">WAREHOUSE_ZONE</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">WAREHOUSE_ZONE_ID</text>
+    </g>
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">SITE_ID</text>
+    </g>
+    <text x="15" y="74" fill="#94a3b8" font-family="monospace" font-size="9">ZONE_CODE</text>
+    <text x="15" y="88" fill="#94a3b8" font-family="monospace" font-size="9">ZONE_TYPE</text>
+    <text x="15" y="102" fill="#94a3b8" font-family="monospace" font-size="9">MAX_CAPACITY_PALLETS</text>
+    <text x="15" y="116" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="132" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Storage zones with capacity</text>
+  </g>
+  
+  <!-- FK: WAREHOUSE_ZONE → SITE -->
+  <path d="M280,350 L230,350" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- ============ SCENARIO_DEFINITION ============ -->
+  <g filter="url(#shadowERD)" transform="translate(510, 90)">
+    <rect width="180" height="155" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="180" height="28" rx="6" fill="#1e40af"/>
+    <text x="90" y="19" text-anchor="middle" fill="#eff6ff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">SCENARIO_DEFINITION</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">SCENARIO_ID</text>
+    </g>
+    <text x="15" y="58" fill="#94a3b8" font-family="monospace" font-size="9">SCENARIO_CODE</text>
+    <text x="15" y="72" fill="#94a3b8" font-family="monospace" font-size="9">SCENARIO_NAME</text>
+    <text x="15" y="86" fill="#94a3b8" font-family="monospace" font-size="9">SCENARIO_TYPE</text>
+    <text x="15" y="100" fill="#94a3b8" font-family="monospace" font-size="9">IS_OFFICIAL_BASELINE</text>
+    <g transform="translate(10, 106)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">PARENT_SCENARIO_ID</text>
+    </g>
+    <text x="15" y="128" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ audit columns</text>
+    <text x="15" y="145" fill="#3b82f6" font-family="Inter, system-ui, sans-serif" font-size="8">📋 Baseline, Q4_Push, etc.</text>
+  </g>
+  
+  <!-- ============ DEMAND_FORECAST_VERSIONS ============ -->
+  <g filter="url(#shadowERD)" transform="translate(510, 280)">
+    <rect width="220" height="180" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+    <rect width="220" height="28" rx="6" fill="#92400e"/>
+    <text x="110" y="19" text-anchor="middle" fill="#fef3c7" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">DEMAND_FORECAST_VERSIONS</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">DEMAND_FORECAST_ID</text>
+    </g>
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">PRODUCT_ID</text>
+    </g>
+    <g transform="translate(10, 66)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">SITE_ID</text>
+    </g>
+    <g transform="translate(10, 80)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">SCENARIO_ID</text>
+    </g>
+    <text x="15" y="102" fill="#94a3b8" font-family="monospace" font-size="9">FORECAST_DATE</text>
+    <text x="15" y="116" fill="#94a3b8" font-family="monospace" font-size="9">FORECAST_QUANTITY</text>
+    <text x="15" y="130" fill="#94a3b8" font-family="monospace" font-size="9">FISCAL_PERIOD, FISCAL_MONTH</text>
+    <text x="15" y="144" fill="#94a3b8" font-family="monospace" font-size="9">UNIT_REVENUE, TOTAL_REVENUE</text>
+    <text x="15" y="158" fill="#94a3b8" font-family="monospace" font-size="9">VERSION_TIMESTAMP</text>
+    <text x="15" y="172" fill="#f59e0b" font-family="Inter, system-ui, sans-serif" font-size="8">⚡ Hybrid Table - Write-back enabled</text>
+  </g>
+  
+  <!-- FK: DEMAND_FORECAST → PRODUCT -->
+  <path d="M510,330 L460,220" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- FK: DEMAND_FORECAST → SITE -->
+  <path d="M510,370 L230,370" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- FK: DEMAND_FORECAST → SCENARIO -->
+  <path d="M620,280 L620,245" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- ============ LOGISTICS_COST_FACT ============ -->
+  <g filter="url(#shadowERD)" transform="translate(770, 280)">
+    <rect width="200" height="170" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="200" height="28" rx="6" fill="#065f46"/>
+    <text x="100" y="19" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">LOGISTICS_COST_FACT</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">LOGISTICS_COST_ID</text>
+    </g>
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">SITE_ID</text>
+    </g>
+    <g transform="translate(10, 66)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">WAREHOUSE_ZONE_ID</text>
+    </g>
+    <text x="15" y="88" fill="#94a3b8" font-family="monospace" font-size="9">STORAGE_COST_PER_PALLET</text>
+    <text x="15" y="102" fill="#94a3b8" font-family="monospace" font-size="9">OVERFLOW_PENALTY_RATE</text>
+    <text x="15" y="116" fill="#94a3b8" font-family="monospace" font-size="9">OVERFLOW_THRESHOLD_PCT</text>
+    <text x="15" y="130" fill="#94a3b8" font-family="monospace" font-size="9">VENDOR_NAME</text>
+    <text x="15" y="144" fill="#6b7280" font-family="monospace" font-size="8" font-style="italic">+ SCD2 columns</text>
+    <text x="15" y="162" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">3PL contract costs</text>
+  </g>
+  
+  <!-- FK: LOGISTICS_COST → SITE -->
+  <path d="M770,330 L230,395" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- FK: LOGISTICS_COST → WAREHOUSE_ZONE -->
+  <path d="M770,360 L460,360" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- ============ INVENTORY_BALANCE ============ -->
+  <g filter="url(#shadowERD)" transform="translate(770, 470)">
+    <rect width="200" height="120" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="200" height="28" rx="6" fill="#1e40af"/>
+    <text x="100" y="19" text-anchor="middle" fill="#eff6ff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">INVENTORY_BALANCE</text>
+    
+    <g transform="translate(10, 38)">
+      <rect x="0" y="0" width="8" height="8" fill="#fbbf24" rx="1"/>
+      <text x="15" y="8" fill="#fcd34d" font-family="monospace" font-size="9">INVENTORY_BALANCE_ID</text>
+    </g>
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">PRODUCT_ID, SITE_ID</text>
+    </g>
+    <g transform="translate(10, 66)">
+      <rect x="0" y="0" width="8" height="8" fill="#60a5fa" rx="1"/>
+      <text x="15" y="8" fill="#93c5fd" font-family="monospace" font-size="9">WAREHOUSE_ZONE_ID</text>
+    </g>
+    <text x="15" y="88" fill="#94a3b8" font-family="monospace" font-size="9">BALANCE_DATE</text>
+    <text x="15" y="102" fill="#94a3b8" font-family="monospace" font-size="9">QUANTITY_ON_HAND</text>
+    <text x="15" y="115" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Current inventory positions</text>
+  </g>
+  
+  <!-- FK lines for INVENTORY_BALANCE -->
+  <path d="M770,530 L460,410" stroke="#64748b" stroke-width="2" marker-end="url(#fkArrow)"/>
+  
+  <!-- Annotations -->
+  <g transform="translate(280, 470)">
+    <rect width="200" height="110" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+    <text x="100" y="18" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">KEY RELATIONSHIPS</text>
+    <line x1="15" y1="26" x2="185" y2="26" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="15" y="44" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">• PRODUCT belongs to CATEGORY</text>
+    <text x="15" y="58" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">• DEMAND linked to SCENARIO</text>
+    <text x="15" y="72" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">• WORK_CENTER at SITE (plant)</text>
+    <text x="15" y="86" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">• WAREHOUSE_ZONE at SITE</text>
+    <text x="15" y="100" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">• LOGISTICS_COST by ZONE</text>
+  </g>
+  
+  <!-- Data Mart note -->
+  <g transform="translate(510, 480)">
+    <rect width="220" height="80" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+    <text x="110" y="18" text-anchor="middle" fill="#4ade80" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">DATA MART (SOP_LOGISTICS)</text>
+    <line x1="15" y1="26" x2="205" y2="26" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="15" y="44" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">SCENARIO_COMPARISON_V</text>
+    <text x="15" y="56" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Denormalized view joining all entities</text>
+    
+    <text x="15" y="72" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">DT_SCENARIO_KPI_SUMMARY</text>
+    <text x="145" y="72" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">(Dynamic Table)</text>
+  </g>
+</svg>
+

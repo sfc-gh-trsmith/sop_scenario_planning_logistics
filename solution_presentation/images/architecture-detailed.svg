@@ -1,0 +1,406 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bgGradDet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="rawGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7f1d1d"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <linearGradient id="atomicGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="martGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <filter id="shadowDet" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowDet" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGradDet)"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">S&amp;OP Solution - Detailed Technical Architecture</text>
+  
+  <!-- Legend -->
+  <g transform="translate(950, 50)">
+    <rect width="220" height="80" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="110" y="18" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">LEGEND</text>
+    <rect x="15" y="30" width="12" height="12" fill="#dc2626" rx="2"/>
+    <text x="35" y="40" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">RAW Layer (Staging)</text>
+    <rect x="15" y="48" width="12" height="12" fill="#2563eb" rx="2"/>
+    <text x="35" y="58" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">ATOMIC Layer (Enterprise)</text>
+    <rect x="115" y="30" width="12" height="12" fill="#059669" rx="2"/>
+    <text x="135" y="40" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Data Mart (Analytics)</text>
+    <rect x="115" y="48" width="12" height="12" fill="#7c3aed" rx="2"/>
+    <text x="135" y="58" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">AI Services</text>
+    <rect x="15" y="66" width="12" height="12" fill="#0891b2" rx="2"/>
+    <text x="35" y="76" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">Application</text>
+  </g>
+  
+  <!-- ============ RAW LAYER ============ -->
+  <g filter="url(#shadowDet)">
+    <rect x="20" y="60" width="200" height="320" rx="8" fill="url(#rawGrad)" opacity="0.15"/>
+    <rect x="20" y="60" width="200" height="30" rx="8" fill="#dc2626"/>
+    <text x="120" y="80" text-anchor="middle" fill="#fef2f2" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">RAW SCHEMA</text>
+    
+    <!-- RAW Tables -->
+    <g transform="translate(35, 100)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">PRODUCT_CATEGORY_STAGE</text>
+    </g>
+    <g transform="translate(35, 128)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">PRODUCT_STAGE</text>
+    </g>
+    <g transform="translate(35, 156)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">SITE_STAGE</text>
+    </g>
+    <g transform="translate(35, 184)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">WORK_CENTER_STAGE</text>
+    </g>
+    <g transform="translate(35, 212)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">WAREHOUSE_ZONE_STAGE</text>
+    </g>
+    <g transform="translate(35, 240)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">DEMAND_FORECAST_STAGE</text>
+    </g>
+    <g transform="translate(35, 268)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">SCENARIO_DEFINITION_STAGE</text>
+    </g>
+    <g transform="translate(35, 296)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">LOGISTICS_COST_STAGE</text>
+    </g>
+    <g transform="translate(35, 324)">
+      <rect width="170" height="22" rx="3" fill="#1e293b" stroke="#f87171" stroke-width="1"/>
+      <text x="85" y="15" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="9">INVENTORY_BALANCE_STAGE</text>
+    </g>
+  </g>
+  
+  <!-- Arrow RAW to ATOMIC -->
+  <g>
+    <path d="M220,220 L260,220" stroke="#64748b" stroke-width="2" marker-end="url(#arrowDet)"/>
+    <text x="240" y="212" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">SQL ETL</text>
+    <text x="240" y="230" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Type casting</text>
+    <text x="240" y="240" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">SCD2 merge</text>
+  </g>
+  
+  <!-- ============ ATOMIC LAYER ============ -->
+  <g filter="url(#shadowDet)">
+    <rect x="270" y="60" width="280" height="430" rx="8" fill="url(#atomicGrad)" opacity="0.15"/>
+    <rect x="270" y="60" width="280" height="30" rx="8" fill="#2563eb"/>
+    <text x="410" y="80" text-anchor="middle" fill="#eff6ff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">ATOMIC SCHEMA (Enterprise Model)</text>
+    
+    <!-- Dimension tables -->
+    <text x="290" y="110" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">DIMENSIONS (Type 2 SCD)</text>
+    
+    <g transform="translate(285, 120)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">PRODUCT_CATEGORY</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Self-ref hierarchy</text>
+    </g>
+    
+    <g transform="translate(415, 120)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">PRODUCT</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Master + pricing</text>
+    </g>
+    
+    <g transform="translate(285, 170)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">SITE</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Plants + Warehouses</text>
+    </g>
+    
+    <g transform="translate(415, 170)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">WORK_CENTER</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Production lines</text>
+    </g>
+    
+    <g transform="translate(285, 220)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">WAREHOUSE_ZONE</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Storage zones</text>
+    </g>
+    
+    <g transform="translate(415, 220)">
+      <rect width="120" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">SCENARIO_DEFINITION</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Forecast scenarios</text>
+    </g>
+    
+    <!-- Fact tables -->
+    <text x="290" y="285" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">FACTS (Transactional)</text>
+    
+    <g transform="translate(285, 295)">
+      <rect width="250" height="50" rx="4" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+      <text x="125" y="18" text-anchor="middle" fill="#fcd34d" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">DEMAND_FORECAST_VERSIONS</text>
+      <text x="125" y="32" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Hybrid Table • Low-latency write-back</text>
+      <text x="125" y="44" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">FK: PRODUCT_ID, SITE_ID, SCENARIO_ID</text>
+    </g>
+    
+    <g transform="translate(285, 355)">
+      <rect width="120" height="45" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">LOGISTICS_COST_FACT</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Storage costs</text>
+      <text x="60" y="40" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Overflow penalties</text>
+    </g>
+    
+    <g transform="translate(415, 355)">
+      <rect width="120" height="45" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+      <text x="60" y="16" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">INVENTORY_BALANCE</text>
+      <text x="60" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">On-hand positions</text>
+      <text x="60" y="40" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">by zone</text>
+    </g>
+    
+    <!-- SCD2 columns note -->
+    <g transform="translate(285, 415)">
+      <rect width="250" height="60" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="125" y="16" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600">TYPE 2 SCD COLUMNS (All Dimensions)</text>
+      <text x="125" y="32" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">VALID_FROM_TIMESTAMP, VALID_TO_TIMESTAMP</text>
+      <text x="125" y="44" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">IS_CURRENT_FLAG, CREATED_BY_USER</text>
+      <text x="125" y="55" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">CREATED_TIMESTAMP, UPDATED_BY_USER</text>
+    </g>
+  </g>
+  
+  <!-- Arrow ATOMIC to DATA MART -->
+  <g>
+    <path d="M550,270 L590,270" stroke="#64748b" stroke-width="2" marker-end="url(#arrowDet)"/>
+    <text x="570" y="260" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Dynamic</text>
+    <text x="570" y="280" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Tables</text>
+  </g>
+  
+  <!-- ============ DATA MART LAYER ============ -->
+  <g filter="url(#shadowDet)">
+    <rect x="600" y="60" width="220" height="280" rx="8" fill="url(#martGrad)" opacity="0.15"/>
+    <rect x="600" y="60" width="220" height="30" rx="8" fill="#059669"/>
+    <text x="710" y="80" text-anchor="middle" fill="#ecfdf5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">SOP_LOGISTICS (Data Mart)</text>
+    
+    <g transform="translate(615, 100)">
+      <rect width="190" height="60" rx="4" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="95" y="18" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">SCENARIO_COMPARISON_V</text>
+      <text x="95" y="32" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Denormalized fact view</text>
+      <text x="95" y="44" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Forecast + Product + Site + Scenario</text>
+      <text x="95" y="54" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">+ Logistics costs calculated</text>
+    </g>
+    
+    <g transform="translate(615, 170)">
+      <rect width="190" height="50" rx="4" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="95" y="18" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">DT_SCENARIO_KPI_SUMMARY</text>
+      <text x="95" y="32" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Dynamic Table - auto refresh</text>
+      <text x="95" y="44" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Pre-aggregated KPIs by scenario</text>
+    </g>
+    
+    <g transform="translate(615, 230)">
+      <rect width="190" height="50" rx="4" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text x="95" y="18" text-anchor="middle" fill="#6ee7b7" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">RECOMMENDED_BUILD_PLAN</text>
+      <text x="95" y="32" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">ML optimization output</text>
+      <text x="95" y="44" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Production schedule recommendations</text>
+    </g>
+    
+    <g transform="translate(615, 290)">
+      <rect width="190" height="40" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="95" y="16" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600">Optimized for Dashboard Queries</text>
+      <text x="95" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Parallel execution, caching</text>
+    </g>
+  </g>
+  
+  <!-- ============ AI LAYER ============ -->
+  <g filter="url(#shadowDet)">
+    <rect x="600" y="360" width="220" height="180" rx="8" fill="#7c3aed" opacity="0.15"/>
+    <rect x="600" y="360" width="220" height="30" rx="8" fill="#7c3aed"/>
+    <text x="710" y="380" text-anchor="middle" fill="#f5f3ff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">CORTEX AI SERVICES</text>
+    
+    <g transform="translate(615, 400)">
+      <rect width="190" height="55" rx="4" fill="#1e293b" stroke="#a78bfa" stroke-width="1"/>
+      <text x="95" y="16" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🤖 Cortex Analyst</text>
+      <text x="95" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Semantic Model: sop_analytics_semantic.yaml</text>
+      <text x="95" y="42" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Tables: scenario_comparison, scenario_kpi</text>
+      <text x="95" y="52" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Natural Language → SQL</text>
+    </g>
+    
+    <g transform="translate(615, 465)">
+      <rect width="190" height="55" rx="4" fill="#1e293b" stroke="#a78bfa" stroke-width="1"/>
+      <text x="95" y="16" text-anchor="middle" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🔍 Cortex Search</text>
+      <text x="95" y="30" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Service: SUPPLY_CHAIN_DOCS_SEARCH</text>
+      <text x="95" y="42" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Documents: 3PL Contracts, SLAs</text>
+      <text x="95" y="52" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">RAG for unstructured queries</text>
+    </g>
+  </g>
+  
+  <!-- ============ APPLICATION LAYER ============ -->
+  <g filter="url(#shadowDet)">
+    <rect x="850" y="60" width="320" height="480" rx="8" fill="#0891b2" opacity="0.15"/>
+    <rect x="850" y="60" width="320" height="30" rx="8" fill="#0891b2"/>
+    <text x="1010" y="80" text-anchor="middle" fill="#ecfeff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">STREAMLIT IN SNOWFLAKE APPLICATION</text>
+    
+    <!-- App pages -->
+    <g transform="translate(865, 100)">
+      <rect width="140" height="75" rx="4" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" fill="#67e8f9" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">📈 Executive Dashboard</text>
+      <text x="70" y="34" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Persona: VP Supply Chain</text>
+      <line x1="10" y1="42" x2="130" y2="42" stroke="#475569" stroke-width="0.5"/>
+      <text x="70" y="54" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Scenario comparison</text>
+      <text x="70" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• KPI variance cards</text>
+    </g>
+    
+    <g transform="translate(1015, 100)">
+      <rect width="140" height="75" rx="4" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" fill="#67e8f9" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🔧 Scenario Builder</text>
+      <text x="70" y="34" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Persona: Demand Planner</text>
+      <line x1="10" y1="42" x2="130" y2="42" stroke="#475569" stroke-width="0.5"/>
+      <text x="70" y="54" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Editable dataframe</text>
+      <text x="70" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Hybrid table write-back</text>
+    </g>
+    
+    <g transform="translate(865, 185)">
+      <rect width="140" height="75" rx="4" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" fill="#67e8f9" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">⚡ Capacity Analysis</text>
+      <text x="70" y="34" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Persona: Logistics Analyst</text>
+      <line x1="10" y1="42" x2="130" y2="42" stroke="#475569" stroke-width="0.5"/>
+      <text x="70" y="54" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Utilization gauges</text>
+      <text x="70" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• ML recommendations</text>
+    </g>
+    
+    <g transform="translate(1015, 185)">
+      <rect width="140" height="75" rx="4" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" fill="#67e8f9" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">🤖 AI Analyst</text>
+      <text x="70" y="34" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Persona: All Users</text>
+      <line x1="10" y1="42" x2="130" y2="42" stroke="#475569" stroke-width="0.5"/>
+      <text x="70" y="54" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Cortex Analyst queries</text>
+      <text x="70" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">• Cortex Search RAG</text>
+    </g>
+    
+    <!-- Utilities -->
+    <g transform="translate(865, 275)">
+      <rect width="290" height="80" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="145" y="18" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">UTILITIES LAYER</text>
+      <line x1="15" y1="28" x2="275" y2="28" stroke="#475569" stroke-width="0.5"/>
+      <text x="80" y="45" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">data_loader.py</text>
+      <text x="80" y="57" text-anchor="middle" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="7">Query execution</text>
+      <text x="215" y="45" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">query_registry.py</text>
+      <text x="215" y="57" text-anchor="middle" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="7">Registered queries</text>
+      <text x="80" y="72" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">styles.py</text>
+      <text x="215" y="72" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">@st.cache_data</text>
+    </g>
+    
+    <!-- Technology stack -->
+    <g transform="translate(865, 370)">
+      <rect width="290" height="100" rx="4" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="145" y="18" text-anchor="middle" fill="#67e8f9" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">TECHNOLOGY STACK</text>
+      <line x1="15" y1="28" x2="275" y2="28" stroke="#475569" stroke-width="0.5"/>
+      
+      <text x="75" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Streamlit</text>
+      <text x="145" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Snowpark</text>
+      <text x="215" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Plotly</text>
+      
+      <text x="75" y="62" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">PuLP</text>
+      <text x="145" y="62" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Pandas</text>
+      <text x="215" y="62" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">NumPy</text>
+      
+      <text x="145" y="85" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Python 3.11 • Snowflake Anaconda Channel</text>
+    </g>
+    
+    <!-- Deployment info -->
+    <g transform="translate(865, 485)">
+      <rect width="290" height="45" rx="4" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+      <text x="145" y="18" text-anchor="middle" fill="#fcd34d" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">DEPLOYMENT</text>
+      <text x="145" y="35" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">snow streamlit deploy • Warehouse: SOP_WH (X-Small)</text>
+    </g>
+  </g>
+  
+  <!-- Connection arrows -->
+  <path d="M820,200 L855,200" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <path d="M820,450 L855,230" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowCyan)"/>
+  
+  <!-- Write-back arrow -->
+  <path d="M1010,355 C1010,500 550,500 550,345" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowDet)"/>
+  <text x="780" y="520" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="9">Scenario write-back (Hybrid Tables)</text>
+  
+  <!-- Bottom notes -->
+  <g transform="translate(20, 560)">
+    <rect width="530" height="120" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="265" y="20" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">DATA FLOW PATTERNS</text>
+    <line x1="20" y1="30" x2="510" y2="30" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="20" y="50" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">1. Batch Ingestion:</text>
+    <text x="130" y="50" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">CSV → Stage → COPY INTO → RAW → SQL Transform → ATOMIC</text>
+    
+    <text x="20" y="68" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">2. Dynamic Tables:</text>
+    <text x="130" y="68" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">ATOMIC changes → Auto-refresh → DATA MART aggregations</text>
+    
+    <text x="20" y="86" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">3. Write-back:</text>
+    <text x="130" y="86" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">Streamlit edit → Stored Procedure → Hybrid Table → Instant visibility</text>
+    
+    <text x="20" y="104" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">4. AI Query:</text>
+    <text x="130" y="104" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">User NL → Cortex Analyst/Search → SQL or RAG → Formatted response</text>
+  </g>
+  
+  <!-- Deployment scripts -->
+  <g transform="translate(570, 560)">
+    <rect width="250" height="120" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="125" y="20" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">SQL DEPLOYMENT SCRIPTS</text>
+    <line x1="20" y1="30" x2="230" y2="30" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="20" y="48" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">01_account_setup.sql</text>
+    <text x="145" y="48" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">05_data_mart.sql</text>
+    <text x="20" y="62" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">02_schema_setup.sql</text>
+    <text x="145" y="62" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">06_cortex_search.sql</text>
+    <text x="20" y="76" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">03_raw_tables.sql</text>
+    <text x="145" y="76" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">07_semantic_model.sql</text>
+    <text x="20" y="90" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">04_atomic_tables.sql</text>
+    <text x="145" y="90" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="8">08_stored_procedures.sql</text>
+    
+    <text x="125" y="110" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="7">Execute in order: ./deploy.sh</text>
+  </g>
+  
+  <!-- RBAC -->
+  <g transform="translate(840, 560)">
+    <rect width="160" height="120" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="80" y="20" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">RBAC ROLES</text>
+    <line x1="15" y1="30" x2="145" y2="30" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="15" y="50" fill="#22c55e" font-family="Inter, system-ui, sans-serif" font-size="9">SOP_ADMIN</text>
+    <text x="15" y="62" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Full DDL/DML access</text>
+    
+    <text x="15" y="80" fill="#3b82f6" font-family="Inter, system-ui, sans-serif" font-size="9">SOP_ANALYST</text>
+    <text x="15" y="92" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">SELECT + scenario INSERT</text>
+    
+    <text x="15" y="110" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="9">SOP_VIEWER</text>
+    <text x="15" y="122" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Data Mart SELECT only</text>
+  </g>
+  
+  <!-- Environment info -->
+  <g transform="translate(1020, 560)">
+    <rect width="150" height="120" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="75" y="20" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">ENVIRONMENT</text>
+    <line x1="15" y1="30" x2="135" y2="30" stroke="#475569" stroke-width="0.5"/>
+    
+    <text x="15" y="50" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Database:</text>
+    <text x="15" y="62" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">SOP_SCENARIO_PLANNING_</text>
+    <text x="15" y="72" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">LOGISTICS</text>
+    
+    <text x="15" y="90" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="8">Warehouse:</text>
+    <text x="15" y="102" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">SOP_WH (X-Small)</text>
+    <text x="15" y="114" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="7">Auto-suspend: 60s</text>
+  </g>
+</svg>
+

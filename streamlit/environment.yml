@@ -1,0 +1,10 @@
+name: sop_streamlit
+channels:
+  - snowflake
+dependencies:
+  - plotly
+  - altair
+  - pandas
+  - numpy
+  - pydeck
+

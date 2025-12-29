@@ -1,0 +1,9 @@
+name: prebuild_optimization
+channels:
+  - snowflake
+dependencies:
+  - pulp
+  - pandas
+  - numpy
+  - matplotlib
+

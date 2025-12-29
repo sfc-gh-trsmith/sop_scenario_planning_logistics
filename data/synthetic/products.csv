@@ -1,0 +1,40 @@
+PRODUCT_ID,PRODUCT_CODE,PRODUCT_NAME,PRODUCT_DESCRIPTION_SHORT,PRODUCT_TYPE,PRODUCT_STATUS,PRODUCT_CATEGORY_ID,UNIT_PRICE,UNIT_COST
+10,TV-001,Television,High-quality television for home and commercial use,FINISHED_GOOD,ACTIVE,11,299.99,180.0
+20,TV-55-002,55-inch LED TV,High-quality 55-inch led tv for home and commercial use,FINISHED_GOOD,ACTIVE,11,449.99,270.0
+30,TV-65-003,65-inch OLED TV,High-quality 65-inch oled tv for home and commercial use,FINISHED_GOOD,ACTIVE,11,799.99,480.0
+31,TV-65-V2-003,65-inch OLED TV Plus,High-quality 65-inch oled tv for home and commercial use,FINISHED_GOOD,ACTIVE,11,919.99,528.0
+40,TV-75-004,75-inch Smart TV,High-quality 75-inch smart tv for home and commercial use,FINISHED_GOOD,ACTIVE,11,1199.99,720.0
+50,SPK-005,Bluetooth Speaker,High-quality bluetooth speaker for home and commercial use,FINISHED_GOOD,ACTIVE,12,49.99,25.0
+60,SB-006,Soundbar,High-quality soundbar for home and commercial use,FINISHED_GOOD,ACTIVE,12,149.99,75.0
+70,SB-PRO-007,Premium Soundbar System,High-quality premium soundbar system for home and commercial use,FINISHED_GOOD,ACTIVE,12,349.99,175.0
+80,HS-008,Wireless Headphones,High-quality wireless headphones for home and commercial use,FINISHED_GOOD,ACTIVE,12,99.99,40.0
+90,REF-STD-009,Standard Refrigerator,High-quality standard refrigerator for home and commercial use,FINISHED_GOOD,ACTIVE,21,599.99,360.0
+91,REF-STD-V2-009,Standard Refrigerator Plus,High-quality standard refrigerator for home and commercial use,FINISHED_GOOD,ACTIVE,21,689.99,396.0
+100,REF-FF-010,French Door Refrigerator,High-quality french door refrigerator for home and commercial use,FINISHED_GOOD,ACTIVE,21,1299.99,780.0
+110,REF-SBS-011,Side-by-Side Refrigerator,High-quality side-by-side refrigerator for home and commercial use,FINISHED_GOOD,ACTIVE,21,999.99,600.0
+120,REF-MINI-012,Mini Refrigerator,High-quality mini refrigerator for home and commercial use,FINISHED_GOOD,ACTIVE,21,149.99,75.0
+130,WSH-TL-013,Top Load Washer,High-quality top load washer for home and commercial use,FINISHED_GOOD,ACTIVE,22,449.99,270.0
+140,WSH-FL-014,Front Load Washer,High-quality front load washer for home and commercial use,FINISHED_GOOD,ACTIVE,22,699.99,420.0
+150,DRY-STD-015,Standard Dryer,High-quality standard dryer for home and commercial use,FINISHED_GOOD,ACTIVE,22,399.99,240.0
+160,DRY-HE-016,High Efficiency Dryer,High-quality high efficiency dryer for home and commercial use,FINISHED_GOOD,ACTIVE,22,549.99,330.0
+170,DRL-18V-017,18V Cordless Drill,High-quality 18v cordless drill for home and commercial use,FINISHED_GOOD,ACTIVE,31,79.99,40.0
+171,DRL-18V-V2-017,18V Cordless Drill Plus,High-quality 18v cordless drill for home and commercial use,FINISHED_GOOD,ACTIVE,31,91.99,44.0
+180,DRL-20V-018,20V MAX Drill,High-quality 20v max drill for home and commercial use,FINISHED_GOOD,ACTIVE,31,129.99,65.0
+190,DRL-HAM-019,Hammer Drill,High-quality hammer drill for home and commercial use,FINISHED_GOOD,ACTIVE,31,149.99,75.0
+191,DRL-HAM-V2-019,Hammer Drill Plus,High-quality hammer drill for home and commercial use,FINISHED_GOOD,ACTIVE,31,172.49,82.5
+200,DRL-IMP-020,Impact Driver,High-quality impact driver for home and commercial use,FINISHED_GOOD,ACTIVE,31,89.99,45.0
+201,DRL-IMP-V2-020,Impact Driver Plus,High-quality impact driver for home and commercial use,FINISHED_GOOD,ACTIVE,31,103.49,49.5
+210,SAW-CIR-021,Circular Saw,High-quality circular saw for home and commercial use,FINISHED_GOOD,ACTIVE,32,99.99,50.0
+220,SAW-JIG-022,Jigsaw,High-quality jigsaw for home and commercial use,FINISHED_GOOD,ACTIVE,32,69.99,35.0
+230,SAW-TBL-023,Table Saw,High-quality table saw for home and commercial use,FINISHED_GOOD,ACTIVE,32,349.99,175.0
+231,SAW-TBL-V2-023,Table Saw Plus,High-quality table saw for home and commercial use,FINISHED_GOOD,ACTIVE,32,402.49,192.5
+240,SAW-MIT-024,Miter Saw,High-quality miter saw for home and commercial use,FINISHED_GOOD,ACTIVE,32,249.99,125.0
+241,SAW-MIT-V2-024,Miter Saw Plus,High-quality miter saw for home and commercial use,FINISHED_GOOD,ACTIVE,32,287.49,137.5
+250,MWR-PSH-025,Push Mower,High-quality push mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,199.99,100.0
+251,MWR-PSH-V2-025,Push Mower Plus,High-quality push mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,229.99,110.0
+260,MWR-SP-026,Self-Propelled Mower,High-quality self-propelled mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,349.99,175.0
+270,MWR-RID-027,Riding Mower,High-quality riding mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,1499.99,900.0
+280,MWR-ZTR-028,Zero Turn Mower,High-quality zero turn mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,2999.99,1800.0
+281,MWR-ZTR-V2-028,Zero Turn Mower Plus,High-quality zero turn mower for home and commercial use,FINISHED_GOOD,ACTIVE,41,3449.99,1980.0
+290,TRM-STR-029,String Trimmer,High-quality string trimmer for home and commercial use,FINISHED_GOOD,ACTIVE,41,79.99,40.0
+300,BLW-LEF-030,Leaf Blower,High-quality leaf blower for home and commercial use,FINISHED_GOOD,ACTIVE,41,99.99,50.0

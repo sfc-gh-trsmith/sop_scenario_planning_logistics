@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#f87171"/>
+    </linearGradient>
+    <linearGradient id="warningGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700">The Hidden Cost Cascade in Manufacturing S&amp;OP</text>
+  <text x="450" y="65" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">When systems don't talk, costs compound invisibly</text>
+  
+  <!-- System Boxes - Row 1 -->
+  <!-- Demand Planning -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="100" width="150" height="100" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="125" y="135" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">DEMAND PLANNING</text>
+    <text x="125" y="158" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="24">📊</text>
+    <text x="125" y="182" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">Excel Spreadsheets</text>
+  </g>
+  
+  <!-- ERP -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="100" width="150" height="100" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="325" y="135" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">ERP SYSTEM</text>
+    <text x="325" y="158" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="24">🏭</text>
+    <text x="325" y="182" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">SAP / Oracle</text>
+  </g>
+  
+  <!-- WMS -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="100" width="150" height="100" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="525" y="135" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">WAREHOUSE (WMS)</text>
+    <text x="525" y="158" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="24">📦</text>
+    <text x="525" y="182" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">No Forecast Link</text>
+  </g>
+  
+  <!-- Finance -->
+  <g filter="url(#shadow)">
+    <rect x="650" y="100" width="150" height="100" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="725" y="135" text-anchor="middle" fill="#60a5fa" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">FINANCE</text>
+    <text x="725" y="158" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="24">💰</text>
+    <text x="725" y="182" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">Post-Mortem Only</text>
+  </g>
+  
+  <!-- Disconnection indicators -->
+  <line x1="200" y1="150" x2="250" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="400" y1="150" x2="450" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="600" y1="150" x2="650" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- X marks for disconnection -->
+  <text x="225" y="145" fill="#ef4444" font-size="16" font-weight="bold">✗</text>
+  <text x="425" y="145" fill="#ef4444" font-size="16" font-weight="bold">✗</text>
+  <text x="625" y="145" fill="#ef4444" font-size="16" font-weight="bold">✗</text>
+  
+  <!-- Cost Leakage Arrows -->
+  <path d="M125,200 Q125,250 200,280" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <path d="M325,200 Q325,260 350,290" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <path d="M525,200 Q525,270 500,300" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <path d="M725,200 Q725,280 650,310" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  
+  <!-- Cost Impact Box -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="280" width="500" height="140" rx="12" fill="#2d1b1b" stroke="#dc2626" stroke-width="2"/>
+    <text x="450" y="315" text-anchor="middle" fill="#fca5a5" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">HIDDEN COST IMPACTS DISCOVERED TOO LATE</text>
+    
+    <!-- Cost items -->
+    <g transform="translate(230, 340)">
+      <rect width="130" height="60" rx="6" fill="#1e293b"/>
+      <text x="65" y="25" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">$2.3M</text>
+      <text x="65" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">Overflow Penalties</text>
+    </g>
+    
+    <g transform="translate(385, 340)">
+      <rect width="130" height="60" rx="6" fill="#1e293b"/>
+      <text x="65" y="25" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">$890K</text>
+      <text x="65" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">Expedited Freight</text>
+    </g>
+    
+    <g transform="translate(540, 340)">
+      <rect width="130" height="60" rx="6" fill="#1e293b"/>
+      <text x="65" y="25" text-anchor="middle" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">12%</text>
+      <text x="65" y="45" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="10">Missed Deliveries</text>
+    </g>
+  </g>
+  
+  <!-- Bottom insight -->
+  <rect x="200" y="445" width="500" height="40" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="450" y="470" text-anchor="middle" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="13">
+    <tspan font-weight="600" fill="#fbbf24">67%</tspan> of manufacturers need 3-4 weeks for a single S&amp;OP cycle
+  </text>
+</svg>
+

@@ -1,0 +1,11 @@
+WORK_CENTER_ID,WORK_CENTER_CODE,WORK_CENTER_NAME,WORK_CENTER_DESCRIPTION,WORK_CENTER_TYPE,SITE_ID,CAPACITY_PER_HOUR,HOURS_PER_DAY,AVAILABLE_SHIFTS,EFFICIENCY_FACTOR
+101,WC-WEST-01,Electronics Assembly Line 1,Primary electronics assembly line,ASSEMBLY,1,150,16,2,0.92
+102,WC-WEST-02,Electronics Assembly Line 2,Secondary electronics assembly line,ASSEMBLY,1,120,16,2,0.9
+103,WC-WEST-03,Tool Fabrication Line,Power tool fabrication and assembly,FABRICATION,1,200,16,2,0.88
+104,WC-WEST-04,Packaging Line West,Final packaging for West plant,PACKAGING,1,300,16,2,0.95
+201,WC-CENT-01,Appliance Assembly Line 1,Large appliance assembly,ASSEMBLY,2,80,24,3,0.91
+202,WC-CENT-02,Appliance Assembly Line 2,Small appliance assembly,ASSEMBLY,2,120,24,3,0.89
+203,WC-CENT-03,Outdoor Equipment Line,Mowers and outdoor equipment,ASSEMBLY,2,50,16,2,0.87
+204,WC-CENT-04,Metal Fabrication,Sheet metal and chassis fabrication,FABRICATION,2,100,24,3,0.85
+205,WC-CENT-05,Quality Inspection,Final QA inspection station,INSPECTION,2,250,24,3,0.98
+206,WC-CENT-06,Packaging Line Central,Final packaging for Central plant,PACKAGING,2,400,24,3,0.94
