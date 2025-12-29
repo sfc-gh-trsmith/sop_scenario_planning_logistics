@@ -480,8 +480,9 @@ fi
 # Check if user already exists
 USER_EXISTS=false
 echo "Checking user..."
-USER_CHECK=$(snow sql -c "$CONNECTION_NAME" -q "SHOW USERS LIKE '$USER_NAME_UPPER'" 2>&1)
-if echo "$USER_CHECK" | grep -qi "$USER_NAME_UPPER"; then
+USER_CHECK=$(snow sql -c "$CONNECTION_NAME" -q "SHOW USERS LIKE '$USER_NAME_UPPER'" --format json 2>&1)
+# Check if JSON result contains actual user data (has "name" field, not just empty array [])
+if echo "$USER_CHECK" | grep -q '"name"' && echo "$USER_CHECK" | grep -qi "\"$USER_NAME_UPPER\""; then
     USER_EXISTS=true
     echo -e "${YELLOW}[INFO]${NC} User '$USER_NAME_UPPER' already exists - will grant project access"
 else
@@ -737,16 +738,16 @@ if [ $? -eq 0 ]; then
     
     # Retrieve account information
     echo "Retrieving account information..."
-    ACCOUNT_INFO=$(snow sql -c "$CONNECTION_NAME" -q "SELECT CURRENT_ACCOUNT() AS account, CURRENT_ORGANIZATION_NAME() AS org, CURRENT_REGION() AS region" --format json 2>/dev/null || echo "[]")
+    ACCOUNT_INFO=$(snow sql -c "$CONNECTION_NAME" -q "SELECT CURRENT_ACCOUNT_NAME() AS account, CURRENT_ORGANIZATION_NAME() AS org" --format json 2>/dev/null || echo "[]")
     
     # Parse account info
-    ACCOUNT_NAME=$(echo "$ACCOUNT_INFO" | grep -o '"ACCOUNT"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*: *"\([^"]*\)".*/\1/' || echo "")
-    ORG_NAME=$(echo "$ACCOUNT_INFO" | grep -o '"ORG"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*: *"\([^"]*\)".*/\1/' || echo "")
+    ACCOUNT_NAME=$(echo "$ACCOUNT_INFO" | grep -o '"ACCOUNT"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*: *"\([^"]*\)".*/\1/' | tr '[:upper:]' '[:lower:]' || echo "")
+    ORG_NAME=$(echo "$ACCOUNT_INFO" | grep -o '"ORG"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*: *"\([^"]*\)".*/\1/' | tr '[:upper:]' '[:lower:]' || echo "")
     
-    # Build account URL
+    # Build account URL (lowercase for web URL, uppercase for identifier)
     if [ -n "$ORG_NAME" ] && [ -n "$ACCOUNT_NAME" ]; then
         ACCOUNT_URL="https://app.snowflake.com/${ORG_NAME}/${ACCOUNT_NAME}"
-        ACCOUNT_IDENTIFIER="${ORG_NAME}-${ACCOUNT_NAME}"
+        ACCOUNT_IDENTIFIER=$(echo "${ORG_NAME}-${ACCOUNT_NAME}" | tr '[:lower:]' '[:upper:]')
     elif [ -n "$ACCOUNT_NAME" ]; then
         ACCOUNT_URL="https://${ACCOUNT_NAME}.snowflakecomputing.com"
         ACCOUNT_IDENTIFIER="${ACCOUNT_NAME}"

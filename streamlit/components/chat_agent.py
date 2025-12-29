@@ -230,29 +230,31 @@ def render_chat_widget(session):
     st.markdown('</div>', unsafe_allow_html=True)  # Close chat-header
 
     # --- CONVERSATION SECTION (scrollable) ---
-    # Build conversation as single HTML block for proper scrolling
+    # Use a container with custom styling for scrolling
     if st.session_state.messages:
-        conv_html = '<div class="chat-conversation">'
-        for message in st.session_state.messages:
-            escaped_content = html.escape(message["content"])
-            if message["role"] == "user":
-                conv_html += f'''
-                <div class="chat-msg chat-msg-user">
-                    <div class="chat-msg-label">You</div>
-                    <div class="chat-msg-content">{escaped_content}</div>
-                </div>
-                '''
-            else:
-                conv_html += f'''
-                <div class="chat-msg chat-msg-assistant">
-                    <div class="chat-msg-label">AI Analyst</div>
-                    <div class="chat-msg-content">{escaped_content}</div>
-                </div>
-                '''
-        conv_html += '</div>'
-        st.markdown(conv_html, unsafe_allow_html=True)
+        # Create scrollable container
+        with st.container():
+            st.markdown('<div class="chat-conversation">', unsafe_allow_html=True)
+            for message in st.session_state.messages:
+                if message["role"] == "user":
+                    st.markdown(f'''
+                    <div class="chat-msg chat-msg-user">
+                        <div class="chat-msg-label">You</div>
+                        <div class="chat-msg-content">{html.escape(message["content"])}</div>
+                    </div>
+                    ''', unsafe_allow_html=True)
+                else:
+                    # For assistant messages, render markdown properly
+                    st.markdown('''
+                    <div class="chat-msg chat-msg-assistant">
+                        <div class="chat-msg-label">AI Analyst</div>
+                    </div>
+                    ''', unsafe_allow_html=True)
+                    # Render the content as markdown (supports headers, lists, etc.)
+                    st.markdown(message["content"])
+            st.markdown('</div>', unsafe_allow_html=True)
     else:
-        # Empty state placeholder to maintain layout
+        # Empty state placeholder
         st.markdown('<div class="chat-conversation chat-empty"><p style="color: #64748b; text-align: center; padding: 2rem;">No messages yet. Ask a question below!</p></div>', unsafe_allow_html=True)
 
     # --- INPUT SECTION (fixed to bottom) ---
