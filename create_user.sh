@@ -598,12 +598,8 @@ else
     SQL_HEADER="CREATE USER: ${USER_NAME_UPPER}"
 fi
 
-# Build notebook grants for all discovered schemas
-NOTEBOOK_GRANTS=""
-for SCHEMA_NAME in $DISCOVERED_SCHEMAS; do
-    NOTEBOOK_GRANTS="${NOTEBOOK_GRANTS}
-GRANT USAGE ON ALL NOTEBOOKS IN SCHEMA ${SNOWFLAKE_DATABASE}.${SCHEMA_NAME} TO ROLE ${SNOWFLAKE_ROLE};"
-done
+# Note: Notebook access is controlled through schema permissions, not direct grants
+# GRANT USAGE ON ALL NOTEBOOKS is not supported by Snowflake
 
 # Build per-schema grants dynamically
 SCHEMA_GRANTS=""
@@ -682,12 +678,6 @@ GRANT USAGE ON DATABASE ${SNOWFLAKE_DATABASE} TO ROLE ${SNOWFLAKE_ROLE};
 
 ${SCHEMA_GRANTS}
 ${COMPUTE_POOL_GRANTS}
--- ============================================================
--- GRANT NOTEBOOK ACCESS (for all schemas with notebooks)
--- ============================================================
-
-${NOTEBOOK_GRANTS}
-
 -- ============================================================
 -- GRANT CORTEX LLM ACCESS
 -- ============================================================

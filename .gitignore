@@ -220,3 +220,4 @@ solution_presentation/sources/SOP_Sources.md
 solution_presentation/SOP_Architecture.md
 solution_presentation/SOP_Slides.md
 streamlit/tests/
+utils/generate_synthetic_data.py

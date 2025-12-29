@@ -7,10 +7,10 @@ entities:
     title: "S&OP Scenario Planning & Logistics"
     query_warehouse: SOP_SCENARIO_PLANNING_LOGISTICS_WH
     main_file: streamlit_app.py
-    pages_dir: pages/
     artifacts:
       - streamlit_app.py
-      - pages/
+      - views/
+      - components/
       - environment.yml
       - utils/
 

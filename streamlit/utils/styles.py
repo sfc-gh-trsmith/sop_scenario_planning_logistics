@@ -55,6 +55,12 @@ def get_page_style() -> str:
             background-color: {COLORS['background']};
         }}
         
+        /* Reduce top padding for compact header */
+        .block-container {{
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }}
+
         /* Metric cards */
         .metric-card {{
             background: linear-gradient(135deg, {COLORS['surface']} 0%, #0f172a 100%);
@@ -156,6 +162,91 @@ def get_page_style() -> str:
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }}
+        
+        /* ============================================
+           CHAT WIDGET - Fixed Layout
+           ============================================ */
+        
+        /* Main container - no fixed height, content determines size */
+        .chat-widget-container {{
+            background-color: {COLORS['surface']};
+            border-radius: 10px;
+            border: 1px solid #334155;
+            padding: 1rem;
+        }}
+        
+        /* Header section */
+        .chat-header {{
+            padding-bottom: 0.5rem;
+        }}
+        
+        /* Conversation section - scrolls with max height */
+        .chat-conversation {{
+            overflow-y: auto;
+            max-height: 400px;
+            min-height: 100px;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }}
+        
+        .chat-conversation.chat-empty {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            max-height: 100px;
+        }}
+        
+        /* Individual chat messages */
+        .chat-msg {{
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+        }}
+        
+        .chat-msg-user {{
+            background: rgba(100, 210, 255, 0.1);
+            border-left: 3px solid {COLORS['primary']};
+        }}
+        
+        .chat-msg-assistant {{
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid #3b82f6;
+        }}
+        
+        .chat-msg-label {{
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }}
+        
+        .chat-msg-user .chat-msg-label {{
+            color: {COLORS['primary']};
+        }}
+        
+        .chat-msg-assistant .chat-msg-label {{
+            color: #60a5fa;
+        }}
+        
+        .chat-msg-content {{
+            color: {COLORS['text']};
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }}
+        
+        /* Input section - fixed to bottom, won't shrink */
+        .chat-input-section {{
+            flex-shrink: 0;
+            border-top: 1px solid #334155;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
         }}
     </style>
     """
